@@ -20,7 +20,7 @@ public class Application {
         String[] arr = text_input.split(regex);
 
         for (int i = 0; i < arr.length; i++) {
-            // 아직 text_input에 구분자가 남아있으면 오류 return 후 종료
+            // 아직 text_input에 구분자가 남아있으면 오류 throw 후 종료
             if (Pattern.matches("[0-9]", arr[i]))
                 throw new ExceptionInInitializerError();
 
