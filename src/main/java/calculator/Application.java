@@ -21,9 +21,11 @@ public class Application {
         String[] arr = pattern.split(text_input);
 
         for (int i = 0; i < arr.length; i++) {
+            // 우선 가독성을 위해서 arr[i]를 출력.
             System.out.println("index[" + i + "]: " + arr[i]);
 
-            // 아직 text_input에 구분자가 남아있으면(int가 아니면) 오류 throw 후 종료
+            // arr[i]가 숫자가 아니면 오류를 throw. 
+            // (자동으로 -가 있으면 양수판단까지 가능하다.)
             if (!Pattern.matches("\\d+", arr[i])) {
                 throw new ExceptionInInitializerError();
             }
