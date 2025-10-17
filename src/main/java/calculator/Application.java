@@ -14,20 +14,22 @@ public class Application {
 
         // text_input에 ;이나 ,을 기준으로 문자를 각각 분리해서 배열에 넣는다.
         // //으로 시작해서 \n으로 끝나는 문자를 각각 분리해서 배열에 넣는다.
-        String regex = "[;,]"; // ; 또는 , 또는 //로 시작해서 \n으로 끝나는 것들을 기준으로 분리한다는 정규표현식
-        System.out.println("regex: " + regex);
+        // ; 또는 , 또는 //로 시작해서 \n으로 끝나는 것들을 기준으로 분리한다는 정규표현식
+        Pattern pattern = Pattern.compile(",|;|//.*\\\\n");
+        System.out.println("regex: " + pattern);
 
-        String[] arr = text_input.split(regex);
+        String[] arr = pattern.split(text_input);
 
         for (int i = 0; i < arr.length; i++) {
-            // 아직 text_input에 구분자가 남아있으면 오류 throw 후 종료
-            if (Pattern.matches("[0-9]", arr[i]))
+            System.out.println("index[" + i + "]: " + arr[i]);
+
+            // 아직 text_input에 구분자가 남아있으면(int가 아니면) 오류 throw 후 종료
+            if (!Pattern.matches("\\d+", arr[i])) {
                 throw new ExceptionInInitializerError();
+            }
 
             result += Integer.parseInt(arr[i]);
-            System.out.println("index[" + i + "]: " + arr[i]);
         }
-
 
         // 각 숫자들끼리 더한 후 결과값 출력
         System.out.println(result);
