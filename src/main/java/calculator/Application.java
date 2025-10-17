@@ -15,6 +15,12 @@ public class Application {
 
 
         // text_input에 ;이나 ,을 기준으로 문자를 각각 분리해서 배열에 넣는다.
+        String[] arr = text_input.split(";|,");
+
+        for (int i = 0; i < arr.length; i++) {
+            // result += int(arr[i]);
+            result += Integer.parseInt(arr[i]);
+        }
 
         // //으로 시작해서 \n으로 끝나는 문자를 각각 분리해서 배열에 넣는다.
 
