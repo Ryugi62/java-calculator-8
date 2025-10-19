@@ -26,6 +26,7 @@ public class Application {
             // 우선 가독성을 위해서 arr[i]를 출력.
             System.out.println("index[" + i + "]: " + arr[i]);
             
+            if (arr[i] == "") continue;
 
             // arr[i]가 숫자가 아니면 오류를 throw. 
             // (자동으로 -가 있으면 양수판단까지 가능하다.)
@@ -35,8 +36,8 @@ public class Application {
 
             result += Integer.parseInt(arr[i]);
         }
-
+ 
         // 각 숫자들끼리 더한 후 결과값 출력
-        System.out.println(result);
+        System.out.println("결과" + result);
     }
 }
